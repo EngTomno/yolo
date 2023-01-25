@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tomno-clinton-app-backend
+spec:
+  selector:
+    matchLabels:
+      run: tomno-clinton-app-backend
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: tomno-clinton-app-backend
+    spec:
+      containers:
+      - name: tomno-clinton-app-backend
+        tty: true 
+        image: engtomno/tomno-clinton-app-backend:latest
+        env:
+        - name: DB_HOST
+          value: "mongodb://mongo/"        
+        ports:
+        - containerPort: 5000
+      initContainers:
+      - name: mongo-app
+        image: mongo:latest
+        ports:
+        - containerPort: 27017
+        

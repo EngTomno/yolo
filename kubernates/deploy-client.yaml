@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tomno-clinton-app
+spec:
+  selector:
+    matchLabels:
+      run: tomno-clinton-app
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: tomno-clinton-app
+    spec:
+      containers:
+      - name: tomno-clinton-app
+        tty: true 
+        image: engtomno/tomno-clinton-app:latest
+        ports:
+        - containerPort: 3000

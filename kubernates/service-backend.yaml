@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: tomno-clinton-app-backend
+  labels:
+    run: tomno-clinton-app-backend
+spec:
+  ports:
+  - port: 5000
+    targetPort: 5000
+    protocol: TCP
+  selector:
+    run: tomno-clinton-app-backend

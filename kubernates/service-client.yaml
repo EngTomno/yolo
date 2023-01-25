@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: tomno-clinton-app
+  labels:
+    run: tomno-clinton-app
+spec:
+  type: NodePort
+  ports:
+  - port: 3000
+    targetPort: 3000
+    nodePort: 30007
+    protocol: TCP
+  selector:
+    run: tomno-clinton-app
